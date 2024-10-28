@@ -1703,6 +1703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShooterTest
       objectReference: {fileID: 0}
+    - target: {fileID: 336100005150113094, guid: c6ee74b610fa1b14697f92073cf9cf92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2812349429589160420, guid: c6ee74b610fa1b14697f92073cf9cf92, type: 3}
       propertyPath: target
       value: 

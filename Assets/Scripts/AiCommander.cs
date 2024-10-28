@@ -91,7 +91,6 @@ public class AiCommander : MonoBehaviour
         }
 
     }
-    
     #endregion
     #region Consious Functions
     // Functions that happen as result of a descision
@@ -180,6 +179,8 @@ public class AiCommander : MonoBehaviour
     {
         foreach (CollectorUnit _selectedCollector in CollectorRef)
         {
+            if (_selectedCollector != null)
+            {
         float distance = Vector3.Distance(_selectedCollector.transform.position, BaseRef.DockingA.position);
 
             if (_selectedCollector.ResourceCollected >= 500 || ResourceNodes.Count == 0 || isRetreat)
@@ -197,6 +198,7 @@ public class AiCommander : MonoBehaviour
             else
             {
                 _selectedCollector.SelectResource(ResourceNodes);
+            }
             }
         }
     }

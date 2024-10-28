@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2609234450705042163}
   - component: {fileID: 2835259523127600426}
   - component: {fileID: 4091587455207625508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4772566043164526785}
   - component: {fileID: 3632888967639283633}
   - component: {fileID: 3948199553447930699}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 6634581071393748513}
   - component: {fileID: 4610977925256994474}
   - component: {fileID: 8963856853842342019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 2309676987096859766}
   - component: {fileID: 2576704247271029589}
   - component: {fileID: 1060887625435670900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,6 +377,7 @@ MonoBehaviour:
   FireRate: 100
   Damage: 5
   Faction: 0
+  ProjectileHit: 0
   origin: {fileID: 0}
   target: {fileID: 0}
   ProjectileTrail: {fileID: 8852138382284108822}
@@ -440,7 +441,7 @@ GameObject:
   - component: {fileID: 8509859300522538904}
   - component: {fileID: 7849949847198523978}
   - component: {fileID: 3206089472209861763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +549,7 @@ GameObject:
   - component: {fileID: 4688913400540930956}
   - component: {fileID: 4337262865405708749}
   - component: {fileID: 8479879652563065703}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8852138382284108822}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +694,7 @@ GameObject:
   - component: {fileID: 3088907618579489145}
   - component: {fileID: 8960357942426447784}
   - component: {fileID: 4657165159371867149}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,7 +802,7 @@ GameObject:
   - component: {fileID: 5458577373230340611}
   - component: {fileID: 4729387713852809407}
   - component: {fileID: 5503314075722451060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectileMesh (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

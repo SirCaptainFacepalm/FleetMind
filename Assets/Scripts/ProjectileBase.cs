@@ -102,6 +102,7 @@ public class ProjectileBase : MonoBehaviour
 */
     void OnTriggerEnter(Collider collider)
     {
+       
         if (collider.gameObject.TryGetComponent<UnitController>(out UnitController targetShip))
         {
             if (targetShip.Faction != Faction)

@@ -9,6 +9,7 @@ TagManager:
   - Collector
   - Base
   - Blocker
+  - Vision
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Selectable
   - Resource
   - Navmesh Obsticle
-  - 
-  - 
+  - Vision Layer
+  - Projectile
   - 
   - 
   - 
