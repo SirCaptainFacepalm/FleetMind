@@ -64,10 +64,9 @@ public class ProjectileBase : MonoBehaviour
     {
         if (FixedOrigin != null || FixedTarget != null)
         {
-            return;
+          direction = (FixedTarget.position - FixedOrigin.position).normalized;
+           transform.rotation = Quaternion.LookRotation(direction);
         }
-         direction = (FixedTarget.position - FixedOrigin.position).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
     }
     private void OnDisable()
     {
@@ -102,13 +101,16 @@ public class ProjectileBase : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
        
-        if (collider.gameObject.TryGetComponent<UnitController>(out UnitController targetShip))
+        if (collider.gameObject.TryGetComponent(out UnitController targetShip))
         {
             if (targetShip.Faction != Faction)
             {
                 ProjectileHit = true;
                 targetShip.TakeDamage(Damage , Faction);
                 Debug.Log("HIT!. " + Damage +" Done");
+                
+                ObjectPooler.instace.DequeueProjectile("Gatling", this);
+
                 //this.gameObject.SetActive(false); WHAT THE FUCK!?!?!?!?!
             }
         }

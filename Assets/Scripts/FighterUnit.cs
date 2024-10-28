@@ -39,7 +39,7 @@ public class FighterUnit : UnitController
     void Update()
     {
         //*********Debug Testing***********
-
+    
         Follow(ProtectedAlly);
         //MoveToPoint( MyAgent,GameManager.Instance.RayPoint + _legalposition);
         
