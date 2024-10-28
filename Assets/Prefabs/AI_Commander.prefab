@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4456794283443003986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009249634711110172}
+  - component: {fileID: 9095462549569614168}
+  - component: {fileID: 4390373805473001172}
+  - component: {fileID: 3528898019275808955}
+  - component: {fileID: -772002923491984875}
+  m_Layer: 0
+  m_Name: AI_Commander
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: 8478e081a26c5f64aa57fa2343d81d3b, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1009249634711110172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456794283443003986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9095462549569614168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456794283443003986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db769d4cc3f3c4446b9a4f03324e3fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentResource: 0
+  MyFaction: 0
+  GameGrid:
+    serializedVersion: 2
+    m_Bits: 0
+  UnitSelection:
+    serializedVersion: 2
+    m_Bits: 0
+  ResourceNodes: []
+  LaserRef: {fileID: 0}
+  BaseRef: {fileID: 0}
+  squadManager: {fileID: 4390373805473001172}
+  formation: {fileID: 0}
+  CollectorRef: []
+  MyUnit: {fileID: 0}
+--- !u!114 &4390373805473001172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456794283443003986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d35429dee354f46927400d679767b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Squad: []
+--- !u!114 &3528898019275808955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456794283443003986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb825a9e355ef1478929ef24cf18f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraSpeed: 0
+  rb: {fileID: 0}
+  GameGrid:
+    serializedVersion: 2
+    m_Bits: 64
+  UnitSelection:
+    serializedVersion: 2
+    m_Bits: 128
+  Navmesh: {fileID: 0}
+  ObjectToSpawn: {fileID: 4006075100721750172, guid: 1dc8fc953e573864dbf19bb401ca238e, type: 3}
+  MyCamera: {fileID: 0}
+  AIRef: {fileID: 0}
+--- !u!95 &-772002923491984875
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456794283443003986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4745a8716b661c243bebe82e16fbd33f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
