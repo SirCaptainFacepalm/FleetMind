@@ -102,12 +102,17 @@ public class ObjectPooler : MonoBehaviour
     {
         if (ObjectToQue.ProjectileHit)
         {
-            ObjectToQue.gameObject.SetActive(false);
+            DequeueProjectile(_tag, ObjectToQue);
             yield break;
         }
 
         yield return new WaitForSeconds(ObjectToQue._lifespan);
-        poolDictionary[_tag].Enqueue(ObjectToQue);
-        ObjectToQue.gameObject.SetActive(false);
+        DequeueProjectile(_tag, ObjectToQue);
+    }
+    
+    public void DequeueProjectile(string _tag, ProjectileBase projectile)
+    {
+        projectile.gameObject.SetActive(false);
+        poolDictionary[_tag].Enqueue(projectile);
     }
 }
