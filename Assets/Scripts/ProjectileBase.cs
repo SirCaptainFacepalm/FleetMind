@@ -72,7 +72,6 @@ public class ProjectileBase : MonoBehaviour
     private void OnDisable()
     {
     }
-
     private Vector3 direction;
     private void MoveToTarget()
     {
