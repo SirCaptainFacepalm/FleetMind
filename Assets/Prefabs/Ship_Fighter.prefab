@@ -216,6 +216,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &656795988786408590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3998134635508471914}
+  m_Layer: 0
+  m_Name: AimLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: e27a81a1baa335045ac17fb92c436532, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3998134635508471914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656795988786408590}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1661322220118247826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &784620719936186619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1631,7 @@ Transform:
   - {fileID: 7370892971784742611}
   - {fileID: 600489773999390686}
   - {fileID: 6151142512084438701}
+  - {fileID: 3998134635508471914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4933256365975149737
@@ -1628,11 +1660,6 @@ MonoBehaviour:
   Gun2: {fileID: 7370892971784742611}
   VisionCones:
   - {fileID: 250825904724544867}
-  Weapons:
-  - FireRate: 0
-    WeaponModel: {fileID: 0}
-    WeaponSound: {fileID: 0}
-    _weaponType: 1
 --- !u!195 &1843283617853432342
 NavMeshAgent:
   m_ObjectHideFlags: 0

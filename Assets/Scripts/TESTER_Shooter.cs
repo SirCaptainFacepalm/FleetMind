@@ -28,7 +28,6 @@ public class TESTER_Shooter : MonoBehaviour
     void Update()
     {
         UpdateShoot();
-
     }
 
     void UpdateShoot()

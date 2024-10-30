@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class UnitController : UnitBase
 {
@@ -31,10 +33,9 @@ public class UnitController : UnitBase
     public bool dofollow = true;
     public bool _isInCombat;
     public bool _isInRange;
-    
-
-
-
+    bool isCoroutineRunning = false;
+    [SerializeField]
+    Weapon[] MyWeapons;
     #endregion
 
     //---------------------------------------------------------------------------------------------References----------------------------------------------------------------------\
@@ -53,6 +54,8 @@ public class UnitController : UnitBase
 
     [SerializeField] 
     List<Collider> VisionCones;
+    
+    Transform myTarget;
 
     // What the AI Knows
 
@@ -157,33 +160,64 @@ public class UnitController : UnitBase
             // need to remove from lists...
         }
     }
-
-    void OnCollisionEnter(Collision collision)
+    
+    // void UpdateShoot()
+    // {
+    //     if (true)
+    //     {
+    //         if (true)
+    //         {
+    //             foreach (var shipWeapons in MyWeapons)
+    //             {
+    //             if (!isCoroutineRunning)
+    //             {
+    //                 if (myTarget != null)
+    //                 {
+    //                 isCoroutineRunning = true;
+    //                 ProjectileBase weaponProjectile =
+    //                     ObjectPooler.instace.SpawnProjectile(shipWeapons.WeaponTypes.ToString(), 0, shipWeapons.WeaponLocation, myTarget, tmpAngle);
+    //                 StartCoroutine(ShootDelay(shipWeapons.WeaponDelay));
+    //                 }
+    //             }
+    //             }
+    //
+    //
+    //         }
+    //     }
+    // }
+    void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collision start");
-        GameObject DetectedObject = collision.gameObject;
-        if (!DetectedObject.CompareTag("Untagged"))
+        foreach (Collider _visionCone in VisionCones)
         {
-
-            if (DetectedObject.CompareTag("Resource"))
+            if (other.TryGetComponent<UnitController>(out UnitController _detectesShip))
             {
-                // May need to Iptimize Remove Get Component
-                ResourceNode DetectedResource = DetectedObject.GetComponent<ResourceNode>();
-                GameManager.Instance.Commanders[0].ResourceDetection(DetectedResource);
-                Debug.Log("Resource detected");
-            }
-            Debug.Log("MidTest");
-            if (DetectedObject.CompareTag("Ship"))
-            {
-                if (!ResourceInVision.Contains(DetectedObject))
+                if (Faction != _detectesShip.Faction)
                 {
-                    ResourceInVision.Add(DetectedObject);
+                    myTarget = _detectesShip.gameObject.transform;
+                    _isInRange = true;
                 }
             }
-
-
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        foreach (Collider _visionCone in VisionCones)
+        {
+            if (other.TryGetComponent<UnitController>(out UnitController _detectesShip))
+            {
+                if (Faction != _detectesShip.Faction)
+                {
+                    myTarget = null;
+                    _isInRange = false;
+                    
+                }
+            }
+        }
+       
+    }
+
+   
 
     IEnumerator FireWeapon(int _fireRate, Transform[] _weaponOrigin, GameObject _projectile , GameObject _target)
     {
@@ -195,6 +229,15 @@ public class UnitController : UnitBase
         }
         yield return new WaitForSeconds(_fireRate);
     }
+
+    IEnumerator ShootDelay(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+
+        isCoroutineRunning = false;
+    }
+
     #endregion
 }
 

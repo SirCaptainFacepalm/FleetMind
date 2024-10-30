@@ -19,8 +19,7 @@ public class FighterUnit : UnitController
     #region References
    
     GameObject[] Projectile;
-    [SerializeField]
-    Weapon[] Weapons;
+
     GameObject ProtectedAlly;
  
     #endregion
@@ -65,13 +64,13 @@ public class FighterUnit : UnitController
         }
     }
 
-    private void ShootWeapon(Weapon.WeaponType weaponType , Transform _mytarget)
-    {
-        if (_isInCombat && _isInRange)
-        {
-            StartCoroutine(Attack(_mytarget));
-        }
-    }
+    // private void ShootWeapon(Weapon.WeaponTypes weaponType , Transform _mytarget)
+    // {
+    //     if (_isInCombat && _isInRange)
+    //     {
+    //         StartCoroutine(Attack(_mytarget));
+    //     }
+    // }
     private void ChangeSpeed()
     {
         MyAgent.speed = _moveSpeed;
