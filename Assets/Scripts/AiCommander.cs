@@ -190,7 +190,6 @@ public class AiCommander : MonoBehaviour
                 {
                     if (!isEnomeratorOn)
                     {
-
                 StartCoroutine(ResourceDeposit());
                     }
                 }

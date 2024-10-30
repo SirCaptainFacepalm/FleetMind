@@ -1222,6 +1222,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2419416390443328538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145280241204500358}
+  m_Layer: 0
+  m_Name: MyTargetOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: d89c4712bbb30ac4f80f16742c7e7ac9, type: 3}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2145280241204500358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419416390443328538}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6704050442454729562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2738033637548845772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5212,7 @@ Transform:
   - {fileID: 8342833099164963490}
   - {fileID: 8961785146864731834}
   - {fileID: 5623888816144224439}
+  - {fileID: 2145280241204500358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3399079271269353658
@@ -5203,6 +5235,8 @@ MonoBehaviour:
   _isInCombat: 0
   _isInRange: 0
   LookPosition: {fileID: 0}
+  myTargetOffset: {fileID: 5623888816144224439}
+  myTargetOrigin: {fileID: 0}
   ShipFormationObject: {fileID: 0}
   MyAgent: {fileID: 2228587231293538963}
   Gun1: {fileID: 0}

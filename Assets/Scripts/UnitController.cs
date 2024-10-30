@@ -8,17 +8,14 @@ using Unity.VisualScripting;
 public class UnitController : UnitBase
 {
     //---------------------------------------------------------------------------------------------Variables----------------------------------------------------------------------\
+
     #region Variables
 
 
 
     string _formation;
 
-    public float _moveSpeed
-    {
-        get;
-        protected set;
-    }
+    public float _moveSpeed { get; protected set; }
 
     float _turnSpeed;
     float _acceleration;
@@ -34,27 +31,29 @@ public class UnitController : UnitBase
     public bool _isInCombat;
     public bool _isInRange;
     bool isCoroutineRunning = false;
-    [SerializeField]
-    Weapon[] MyWeapons;
+    [SerializeField] Weapon[] MyWeapons;
+
     #endregion
 
     //---------------------------------------------------------------------------------------------References----------------------------------------------------------------------\
+
     #region References
-    [SerializeField]
-    protected Transform LookPosition;
+
+    [SerializeField] protected Transform LookPosition;
+
+    [SerializeField] Transform myTargetOffset;
+    Transform myTargetOrigin;
+
     GameObject _HomeBase;
     GameObject _EnemyBase;
     GameObject _EnemyTarget;
     public GameObject ShipFormationObject;
     public NavMeshAgent MyAgent;
-    [SerializeField]
-    Transform Gun1;
-    [SerializeField]
-    Transform Gun2;
+    [SerializeField] Transform Gun1;
+    [SerializeField] Transform Gun2;
 
-    [SerializeField] 
-    List<Collider> VisionCones;
-    
+    [SerializeField] List<Collider> VisionCones;
+
     Transform myTarget;
 
     // What the AI Knows
@@ -64,17 +63,25 @@ public class UnitController : UnitBase
 
     // Enemies
     List<GameObject> EnemiesInVision;
+
     #endregion
 
     //---------------------------------------------------------------------------------------------Functions----------------------------------------------------------------------\
+
     #region Functions
 
+    void Start()
+    {
+        myTargetOrigin.position = transform.position;
+        myTargetOrigin.rotation = transform.rotation;
+    }
     void Update()
     {
         if (MyAgent != null)
         {
             NextPosition = MyAgent.nextPosition;
         }
+
         Death();
     }
 
@@ -115,18 +122,22 @@ public class UnitController : UnitBase
         }
         //KeepFormation();
     }
+
     private void FaceTarget(Transform _lookPosition)
     {
 
     }
+
     protected void Retreat()
     {
 
     }
+
     protected void Follow()
     {
 
     }
+
     protected void KeepFormation(bool inFormation, string formation)
     {
 
@@ -140,15 +151,16 @@ public class UnitController : UnitBase
         }
     }
 
-    public void TakeDamage(int _damage , int enemyFaction)
+    public void TakeDamage(int _damage, int enemyFaction)
     {
         Health -= _damage;
-        Debug.Log(_damage+ " Damage Taken" + "Health is now " + Health);
+        Debug.Log(_damage + " Damage Taken" + "Health is now " + Health);
         if (Health <= 0)
         {
             Death();
         }
     }
+
     protected void Death()
     {
         var myship = this;
@@ -160,7 +172,7 @@ public class UnitController : UnitBase
             // need to remove from lists...
         }
     }
-    
+
     // void UpdateShoot()
     // {
     //     if (true)
@@ -185,6 +197,12 @@ public class UnitController : UnitBase
     //         }
     //     }
     // }
+
+    void AimOffsetPosition()
+    {
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         foreach (Collider _visionCone in VisionCones)
@@ -210,16 +228,20 @@ public class UnitController : UnitBase
                 {
                     myTarget = null;
                     _isInRange = false;
-                    
+
                 }
             }
         }
-       
+
     }
 
-   
+    IEnumerator MeTargetPrediction()
+    {
 
-    IEnumerator FireWeapon(int _fireRate, Transform[] _weaponOrigin, GameObject _projectile , GameObject _target)
+        yield return new WaitForSeconds(0.05f);
+    }
+
+    IEnumerator FireWeapon(int _fireRate, Transform[] _weaponOrigin, GameObject _projectile, GameObject _target)
     {
         foreach (Transform _Weapon in _weaponOrigin)
         {
@@ -227,6 +249,7 @@ public class UnitController : UnitBase
 
 
         }
+
         yield return new WaitForSeconds(_fireRate);
     }
 

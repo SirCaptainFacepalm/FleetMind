@@ -34,7 +34,7 @@ public class SquadManager : MonoBehaviour
                 // Checks is Squad List is Empty
                 if (Squad.Count > 0)
                 {
-                    foreach (Squad _squad in Squad)
+                    foreach (Squad _squad  in Squad)
                     {
                         if (_squad.squadsize < maxSquadSize)
                         {
