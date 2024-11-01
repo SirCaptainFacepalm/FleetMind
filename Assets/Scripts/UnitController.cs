@@ -22,6 +22,9 @@ public class UnitController : UnitBase
     float _sightRadius;
     float[] _cooldown;
     float[] _range;
+    float _offsetMultiplier = 2f;
+
+    public Vector3 offsetAmount = new Vector3(0f, 0f, 0f);
 
     Vector3 _destination;
     public Vector3 _legalposition = new Vector3(0, 0, 0);
@@ -32,6 +35,8 @@ public class UnitController : UnitBase
     public bool _isInRange;
     bool isCoroutineRunning = false;
     [SerializeField] Weapon[] MyWeapons;
+    public Vector3 myTargetOrigin = new Vector3(0,0,0);
+     
 
     #endregion
 
@@ -42,7 +47,6 @@ public class UnitController : UnitBase
     [SerializeField] protected Transform LookPosition;
 
     [SerializeField] Transform myTargetOffset;
-    Transform myTargetOrigin;
 
     GameObject _HomeBase;
     GameObject _EnemyBase;
@@ -70,19 +74,30 @@ public class UnitController : UnitBase
 
     #region Functions
 
-    void Start()
+    void Awake()
     {
-        myTargetOrigin.position = transform.position;
-        myTargetOrigin.rotation = transform.rotation;
+        PredictionInit();
     }
+
     void Update()
     {
         if (MyAgent != null)
         {
             NextPosition = MyAgent.nextPosition;
         }
-
+        AimOffsetPosition();
         Death();
+    }
+
+    void PredictionInit()
+    {
+        if (myTargetOffset != null)
+        {
+            
+        myTargetOrigin = transform.position;
+       myTargetOffset.position = transform.position;
+        StartCoroutine(MeTargetPrediction());
+        }
     }
 
     public void ShipInit(int _squadID, int _faction, string _name, UnitController.UnitType _unitType)
@@ -200,7 +215,7 @@ public class UnitController : UnitBase
 
     void AimOffsetPosition()
     {
-
+myTargetOffset.position  = this.GameObject().transform.position + offsetAmount;
     }
 
     void OnTriggerEnter(Collider other)
@@ -237,8 +252,15 @@ public class UnitController : UnitBase
 
     IEnumerator MeTargetPrediction()
     {
-
-        yield return new WaitForSeconds(0.05f);
+        while (true)
+        {
+        Debug.Log("MeTargetPrediction");
+        offsetAmount = (transform.position - myTargetOrigin);
+        myTargetOffset.position = (transform.position + offsetAmount);
+        myTargetOrigin = transform.position;
+        //myTargetOrigin.rotation = transform.rotation;
+        yield return new WaitForSeconds(0.5f);
+        }
     }
 
     IEnumerator FireWeapon(int _fireRate, Transform[] _weaponOrigin, GameObject _projectile, GameObject _target)

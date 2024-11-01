@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3998134635508471914}
   m_Layer: 0
-  m_Name: AimLocation
+  m_Name: MeTargetOffset
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: e27a81a1baa335045ac17fb92c436532, type: 3}
   m_NavMeshLayer: 0
@@ -1280,7 +1280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115359923736271415}
   m_Layer: 0
-  m_Name: MyTargetOffset
+  m_Name: AimLocation
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: d89c4712bbb30ac4f80f16742c7e7ac9, type: 3}
   m_NavMeshLayer: 0
@@ -1681,13 +1681,14 @@ MonoBehaviour:
   Faction: 0
   _health: 10
   _unitType: 1
+  offsetAmount: {x: 0, y: 0, z: 0}
   _legalposition: {x: 0, y: 0, z: 0}
   dofollow: 1
   _isInCombat: 0
   _isInRange: 0
+  myTargetOrigin: {x: 0, y: 0, z: 0}
   LookPosition: {fileID: 0}
   myTargetOffset: {fileID: 3998134635508471914}
-  myTargetOrigin: {fileID: 0}
   ShipFormationObject: {fileID: 0}
   MyAgent: {fileID: 1843283617853432342}
   Gun1: {fileID: 1295164004505441878}

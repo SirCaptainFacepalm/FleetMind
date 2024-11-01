@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 
 public class SquadManager : MonoBehaviour
@@ -34,7 +35,7 @@ public class SquadManager : MonoBehaviour
                 // Checks is Squad List is Empty
                 if (Squad.Count > 0)
                 {
-                    foreach (Squad _squad  in Squad)
+                    foreach (Squad _squad  in Squad.ToList())
                     {
                         if (_squad.squadsize < maxSquadSize)
                         {
